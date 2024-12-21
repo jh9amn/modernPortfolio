@@ -10,6 +10,8 @@ import { motion, useInView } from "framer-motion";
 import project1 from "../../../../public/images/projects/crypto-screener-cover-image.jpg";
 import AnimationTmeplate from "@/components/AnimationTmeplate";
 
+const FramerImage = motion(Image);
+
 interface FeaturedProjectProps {
   type: string;
   title: string;
@@ -49,7 +51,13 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
         className="w-1/2 cursor-pointer overflow-hidden rounded-lg p-12"
       >
         <div className="image-container">
-          <Image src={img} alt={title} className="w-full h-auto" />
+          <FramerImage
+            src={img}
+            alt={title}
+            className="w-full h-auto"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          />
         </div>
       </Link>
 
@@ -110,7 +118,13 @@ const ProjectSecond: React.FC<FeaturedProjectProps> = ({
         className="w-full cursor-pointer overflow-hidden rounded-lg p-12"
       >
         <div className="image-container">
-          <Image src={img} alt={title} className="w-full h-auto" />
+          <FramerImage
+            src={img}
+            alt={title}
+            className="w-full h-auto"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          />
         </div>
       </Link>
       <div className="w-full flex flex-col items-start justify-between mt-4">
@@ -168,7 +182,13 @@ const ProjectFirst: React.FC<FeaturedProjectProps> = ({
         className="w-full cursor-pointer overflow-hidden rounded-lg p-12"
       >
         <div className="image-container">
-          <Image src={img} alt={title} className="w-full h-auto" />
+          <FramerImage
+            src={img}
+            alt={title}
+            className="w-full h-auto"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          />
         </div>
       </Link>
 

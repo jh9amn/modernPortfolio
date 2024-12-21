@@ -9,6 +9,7 @@ import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
+import AnimationTmeplate from "@/components/AnimationTmeplate";
 
 const AnimateNumber = ({ value }) => {
   const ref = useRef();
@@ -36,7 +37,7 @@ const AnimateNumber = ({ value }) => {
 
 const About = () => {
   return (
-    <>
+    <AnimationTmeplate>
       <Head>
         <title>Aman | About Page</title>
         <meta name="description" content="my description" />
@@ -114,10 +115,10 @@ const About = () => {
           </div>
           <Skills />
           <Experience />
-          <Education/>
+          <Education />
         </Layout>
       </main>
-    </>
+    </AnimationTmeplate>
   );
 };
 

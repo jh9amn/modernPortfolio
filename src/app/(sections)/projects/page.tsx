@@ -8,6 +8,7 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import project1 from "../../../../public/images/projects/crypto-screener-cover-image.jpg";
+import AnimationTmeplate from "@/components/AnimationTmeplate";
 
 interface FeaturedProjectProps {
   type: string;
@@ -34,13 +35,13 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
       initial={{ opacity: 0, y: -50 }}
       ref={ref}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] rounded-br-3xl bg-dark"
+        className="absolute -bottom-3 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] rounded-br-3xl bg-dark"
         initial={{ opacity: 0 }}
-        animate={{ opacity: isInView ? 1 : 0 }}
-        transition={{ duration: 0.5 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
       />
       <Link
         href={link}
@@ -67,12 +68,13 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
           <Link href={githublink} className="w-10">
             <GithubIcon className="rounded-sm" />
           </Link>
-          <Link
-            href={link}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-left font-semibold"
           >
-            Visit Project
-          </Link>
+            <Link href={link}>Visit Project</Link>
+          </motion.button>
         </div>
       </div>
     </motion.article>
@@ -97,7 +99,7 @@ const ProjectSecond: React.FC<FeaturedProjectProps> = ({
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="absolute bottom-3 right-3 -z-10 w-[101%] h-[100%] rounded-[2rem] rounded-br-3xl bg-white"
+        className="absolute bottom-3 right-3 -z-10 w-[101%] h-[100%] rounded-[2rem] rounded-br-3xl bg-light"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 0.5 }}
@@ -154,7 +156,7 @@ const ProjectFirst: React.FC<FeaturedProjectProps> = ({
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="absolute bottom-3 right-3 -z-10 w-[101%] h-[100%] rounded-[2rem] rounded-br-3xl bg-white"
+        className="absolute bottom-3 right-3 -z-10 w-[101%] h-[100%] rounded-[2rem] rounded-br-3xl bg-light"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 0.5 }}
@@ -199,81 +201,83 @@ const ProjectFirst: React.FC<FeaturedProjectProps> = ({
 const Projets = () => {
   return (
     <>
-      <Head>
-        <title>Aman | About Page</title>
-        <meta name="description" content="my description" />
-      </Head>
+      <AnimationTmeplate>
+        <Head>
+          <title>Aman | About Page</title>
+          <meta name="description" content="my description" />
+        </Head>
 
-      <main className="w-full mb-16 flex flex-col items-center justify-center">
-        <Layout className="pt-16">
-          <AnimatedText
-            text={"Imagination Trumps Knowledge!"}
-            className="mb-16"
-          />
-          <div className="grid grid-cols-12 gap-24 gap-y-32">
-            <div className="col-span-12">
-              <FeaturedProject
-                title={"NetFlix GPT-AI"}
-                summary={
-                  "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency"
-                }
-                link={"https://www.google.com/"}
-                githublink={"https://www.google.com/"}
-                type={"Featured Projects"}
-                img={project1}
-              />
+        <main className="w-full mb-16 flex flex-col items-center justify-center">
+          <Layout className="pt-16">
+            <AnimatedText
+              text={"Imagination Trumps Knowledge!"}
+              className="mb-16"
+            />
+            <div className="grid grid-cols-12 gap-24 gap-y-32">
+              <div className="col-span-12">
+                <FeaturedProject
+                  title={"NetFlix GPT-AI"}
+                  summary={
+                    "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency"
+                  }
+                  link={"https://www.google.com/"}
+                  githublink={"https://www.google.com/"}
+                  type={"Featured Projects"}
+                  img={project1}
+                />
+              </div>
+              <div className="col-span-6">
+                <ProjectFirst
+                  title={"NetFlix GPT-AI"}
+                  link={"https://www.google.com/"}
+                  githublink={"https://www.google.com/"}
+                  type={"Featured Projects"}
+                  img={project1}
+                />
+              </div>
+              <div className="col-span-6">
+                <ProjectSecond
+                  title={"NetFlix GPT-AI"}
+                  link={"https://www.google.com/"}
+                  githublink={"https://www.google.com/"}
+                  type={"Featured Projects"}
+                  img={project1}
+                />
+              </div>
+              <div className="col-span-12">
+                <FeaturedProject
+                  title={"NetFlix GPT-AI"}
+                  summary={
+                    "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency"
+                  }
+                  link={"https://www.google.com/"}
+                  githublink={"https://www.google.com/"}
+                  type={"Featured Projects"}
+                  img={project1}
+                />
+              </div>
+              <div className="col-span-6">
+                <ProjectFirst
+                  title={"NetFlix GPT-AI"}
+                  link={"https://www.google.com/"}
+                  githublink={"https://www.google.com/"}
+                  type={"Featured Projects"}
+                  img={project1}
+                />
+              </div>
+              <div className="col-span-6">
+                <ProjectSecond
+                  title={"NetFlix GPT-AI"}
+                  link={"https://www.google.com/"}
+                  githublink={"https://www.google.com/"}
+                  type={"Featured Projects"}
+                  img={project1}
+                />
+              </div>
             </div>
-            <div className="col-span-6">
-              <ProjectFirst
-                title={"NetFlix GPT-AI"}
-                link={"https://www.google.com/"}
-                githublink={"https://www.google.com/"}
-                type={"Featured Projects"}
-                img={project1}
-              />
-            </div>
-            <div className="col-span-6">
-              <ProjectSecond
-                title={"NetFlix GPT-AI"}
-                link={"https://www.google.com/"}
-                githublink={"https://www.google.com/"}
-                type={"Featured Projects"}
-                img={project1}
-              />
-            </div>
-            <div className="col-span-12">
-              <FeaturedProject
-                title={"NetFlix GPT-AI"}
-                summary={
-                  "A feature-rich Crypto Screener App using React, Tailwind CSS, Context API, React Router and Recharts. It shows detail regarding almost all the cryptocurrency. You can easily convert the price in your local currency"
-                }
-                link={"https://www.google.com/"}
-                githublink={"https://www.google.com/"}
-                type={"Featured Projects"}
-                img={project1}
-              />
-            </div>
-            <div className="col-span-6">
-              <ProjectFirst
-                title={"NetFlix GPT-AI"}
-                link={"https://www.google.com/"}
-                githublink={"https://www.google.com/"}
-                type={"Featured Projects"}
-                img={project1}
-              />
-            </div>
-            <div className="col-span-6">
-              <ProjectSecond
-                title={"NetFlix GPT-AI"}
-                link={"https://www.google.com/"}
-                githublink={"https://www.google.com/"}
-                type={"Featured Projects"}
-                img={project1}
-              />
-            </div>
-          </div>
-        </Layout>
-      </main>
+          </Layout>
+        </main>
+      </AnimationTmeplate>
     </>
   );
 };

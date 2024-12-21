@@ -4,6 +4,8 @@ import profilePic from "./../../public/images/profile/developer-pic-1.png";
 import AnimatedText from "@/components/AnimatedText";
 import Link from "next/link";
 import { LinkArrow } from "@/components/Icons";
+import HireMe from "@/components/HireMe";
+import lightBulb from "./../../public/images/svgs/miscellaneous_icons_1.svg";
 
 export default function Home() {
   return (
@@ -28,16 +30,30 @@ export default function Home() {
               articles, showcasing my expertise in React.js and web development.
             </p>
             <div className="flex items-center self-start mt-2 gap-4">
-              <Link href={"/dummy.pdf"} target={"_blank"}
+              <Link
+                href={"/dummy.pdf"}
+                target={"_blank"}
                 className="flex items-center bg-dark text-light p-2.5 rounded-lg px-6 text-lg font-semibold hover:bg-light hover:text-dark
-              border-2 border-solid border-transparent hover:border-dark transition-all">Resume
-              <LinkArrow className={"w-6 ml-1"}/> </Link>
-              <Link href="mailto:amankumar9631400@gmail.com"
-              className="underline ml-4 capitalize text-lg font-medium">Contact</Link>
+              border-2 border-solid border-transparent hover:border-dark transition-all"
+              >
+                Resume
+                <LinkArrow className={"w-6 ml-1"} />{" "}
+              </Link>
+              <Link
+                href="mailto:amankumar9631400@gmail.com"
+                className="underline ml-4 capitalize text-lg font-medium"
+              >
+                Contact
+              </Link>
             </div>
           </div>
         </div>
       </Layout>
+      <HireMe />
+
+      <div className="absolute bottom-8 right-8 inline-block w-20">
+        <Image src={lightBulb} alt="idea_icon" className="w-full h-auto"/>
+      </div>
     </main>
   );
 }

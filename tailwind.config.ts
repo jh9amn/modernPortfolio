@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 /** @type {import('tailwindcss').Config} */
 
-
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,6 +20,13 @@ export default {
       },
       fontFamily: {
         mont: ["var(--font-mont)", ...fontFamily.sans],
+      },
+      animation: {
+        "spin-slow": "spin 8s linear infinite",
+      },
+      backgroundImage: {
+        circularLight:
+          "repeating-radial-gradient(rgba(0, 0, 0, 0.4) 2px, #f5f5f5 5px, #f5f5f5 100px);",
       },
     },
   },

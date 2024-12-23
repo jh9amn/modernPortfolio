@@ -30,17 +30,17 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
   githublink,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-20% 0% -20% 0%" });
+  const isInView = useInView(ref, { once: true, margin: "-20% 0% -20% 0%" });
   return (
     <motion.article
-      className="w-full relative rounded-br-2xl flex items-center justify-between rounded-3xl border border-solid border-dark bg-light shadow-2xl"
+      className="w-full relative rounded-br-2xl flex items-center justify-between rounded-3xl border border-solid border-dark bg-light dark:bg-dark dark:border-light shadow-2xl"
       initial={{ opacity: 0, y: -50 }}
       ref={ref}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="absolute -bottom-3 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] rounded-br-3xl bg-dark"
+        className="absolute -bottom-3 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] rounded-br-3xl bg-dark dark:bg-light"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
@@ -57,20 +57,28 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
             className="w-full h-auto"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
+            priority
+            sizes="(max-width : 768px) 100vw,
+                        (max-width: 1200px) 50vw,
+                          50vw"
           />
         </div>
       </Link>
 
       <div className="w-1/2 flex flex-col items-start justify-between pl-6">
-        <span className="text-primary font-medium text-xl">{type}</span>
+        <span className="text-primary dark:text-primaryDark font-medium text-xl">
+          {type}
+        </span>
         <Link
           href={link}
           target={"_blank"}
           className="hover:underline underline-offset-2"
         >
-          <h2 className="my-2 w-full text-left text-4xl font-bold">{title}</h2>
+          <h2 className="my-2 w-full text-left text-4xl font-bold dark:text-light">
+            {title}
+          </h2>
         </Link>
-        <p className="my-2 font-medium text-dark">{summary}</p>
+        <p className="my-2 font-medium dark:text-light text-dark">{summary}</p>
 
         <div className="mt-2 flex items-center">
           <Link href={githublink} className="w-10">
@@ -79,9 +87,11 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="ml-4 rounded-lg bg-dark text-light p-2 px-6 text-left font-semibold"
+            className="ml-4 rounded-lg bg-dark text-light dark:bg-light dark:text-dark p-2 px-6 text-left font-semibold"
           >
-            <Link href={link}>Visit Project</Link>
+            <Link target="_blank" href={link}>
+              Visit Project
+            </Link>
           </motion.button>
         </div>
       </div>
@@ -97,17 +107,17 @@ const ProjectSecond: React.FC<FeaturedProjectProps> = ({
   githublink,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "0% -20% 0% -20%" });
+  const isInView = useInView(ref, { once: true, margin: "0% -20% 0% -20%" });
   return (
     <motion.article
-      className="w-full flex flex-col items-center justify-center rounded-3xl border border-solid border-dark bg-dark p-6 relative"
+      className="w-full flex flex-col items-center justify-center rounded-3xl border border-solid border-dark bg-dark dark:border-light dark:bg-light p-6 relative"
       ref={ref}
       initial={{ opacity: 0, x: 0, y: 0 }}
       animate={isInView ? { opacity: 1, x: 100 } : { opacity: 0, x: 0 }}
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="absolute bottom-3 right-3 -z-10 w-[101%] h-[100%] rounded-[2rem] rounded-br-3xl bg-light"
+        className="absolute bottom-3 right-3 -z-10 w-[101%] h-[100%] rounded-[2rem] rounded-br-3xl bg-light dark:bg-dark"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 0.5 }}
@@ -124,11 +134,17 @@ const ProjectSecond: React.FC<FeaturedProjectProps> = ({
             className="w-full h-auto"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
+            priority
+            sizes="(max-width : 768px) 100vw,
+                        (max-width: 1200px) 50vw,
+                          50vw"
           />
         </div>
       </Link>
       <div className="w-full flex flex-col items-start justify-between mt-4">
-        <span className="text-primary font-medium text-xl">{type}</span>
+        <span className="text-primary dark:text-primaryDark font-medium text-xl">
+          {type}
+        </span>
         <Link
           href={link}
           target={"_blank"}
@@ -160,17 +176,17 @@ const ProjectFirst: React.FC<FeaturedProjectProps> = ({
   githublink,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "0% -20% 0% -20%" });
+  const isInView = useInView(ref, { once: true, margin: "0% -20% 0% -20%" });
   return (
     <motion.article
-      className="w-full flex flex-col items-center justify-center rounded-3xl border border-solid border-dark bg-dark p-6 relative"
+      className="w-full flex flex-col items-center justify-center rounded-3xl border border-solid border-dark bg-dark dark:border-light dark:bg-light p-6 relative"
       initial={{ opacity: 0, x: 0, y: 0 }}
       ref={ref}
       animate={isInView ? { opacity: 1, x: -100 } : { opacity: 0, x: 0 }}
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="absolute bottom-3 right-3 -z-10 w-[101%] h-[100%] rounded-[2rem] rounded-br-3xl bg-light"
+        className="absolute bottom-3 right-3 -z-10 w-[101%] h-[100%] rounded-[2rem] rounded-br-3xl bg-light dark:bg-dark"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 0.5 }}
@@ -188,12 +204,18 @@ const ProjectFirst: React.FC<FeaturedProjectProps> = ({
             className="w-full h-auto"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
+            priority
+            sizes="(max-width : 768px) 100vw,
+                        (max-width: 1200px) 50vw,
+                          50vw"
           />
         </div>
       </Link>
 
       <div className="w-full flex flex-col items-start justify-between mt-4">
-        <span className="text-primary font-medium text-xl">{type}</span>
+        <span className="text-primary dark:text-primaryDark font-medium text-xl">
+          {type}
+        </span>
         <Link
           href={link}
           target={"_blank"}
@@ -227,7 +249,7 @@ const Projets = () => {
           <meta name="description" content="my description" />
         </Head>
 
-        <main className="w-full mb-16 flex flex-col items-center justify-center">
+        <main className="w-full mb-16 flex flex-col items-center justify-center dark:text-light">
           <Layout className="pt-16">
             <AnimatedText
               text={"Imagination Trumps Knowledge!"}

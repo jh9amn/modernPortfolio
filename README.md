@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# theme Switch
 
-## Getting Started
+### when using tailwind css
+>  store theme value local storage..
+    create a hook : 
 
-First, run the development server:
+                import React, { useEffect, useState } from "react";
+                const useThemeSwitcher = () => {
+                const preferDarkQuery = "(prefer-color-scheme: dark)";
+                const [mode, setMode] = useState("");
+                useEffect(() => {
+                const mediaQuery = window.matchMedia(preferDarkQuery);
+                const userProf = window.localStorage.getItem("theme");
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+                const handleChange = () => {
+                if (userProf) {
+                    let check = userProf === "dark" ? "dark" : "light";
+                    setMode(check);
+                    if (check === "dark") {
+                    document.documentElement.classList.add("dark");
+                    } else {
+                    document.documentElement.classList.remove("dark");
+                    }
+                }
+                // First time, when user open the website there is no user preference.. so else condition work
+                else {
+                    let check = mediaQuery.matches ? "dark" : "light";
+                    setMode(check);
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+                    if (check === "dark") {
+                    document.documentElement.classList.add("dark");
+                    } else {
+                    document.documentElement.classList.remove("dark");
+                    }
+                }
+                };
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+                mediaQuery.addEventListener("change", handleChange);
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+                return () => mediaQuery.removeEventListener("change", handleChange);
+            }, []);
 
-## Learn More
+- 
+            useEffect(() => {
+                if (mode === "dark") {
+                window.localStorage.setItem("theme", "dark");
+                document.documentElement.classList.add("dark");
+                } else {
+                window.localStorage.setItem("theme", "light");
+                document.documentElement.classList.remove("dark");
+                }
+            }, [mode]);
 
-To learn more about Next.js, take a look at the following resources:
+            return [mode, setMode];
+            };
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+            export default useThemeSwitcher;
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Add a line to tailwind.config file
 
-## Deploy on Vercel
+      darkMode : "class",
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+> Add onClick function into buton to navigate mode     
+
+    <button onClick={() => setMode(mode === "light" ? "dark" : "light")}
+                className="ml-3 flex items-center justify-center rounded-full p-1">
+                {mode === "dark" ? (
+                    <SunIcon className={"fill-dark"} />
+                ) : (
+                    <MoonIcon className={"fill-dark"} />
+                )}
+    </button>
+
+
+
+# FOUC

@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+// import Script from "next/script";
 // import { AnimatePresence, motion } from "framer-motion";
 // import { usePathname } from "next/navigation";
 
@@ -36,9 +37,30 @@ export default function RootLayout({
   // const pathName = usePathname();
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your App Name</title>
+      </head>
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} font-mont text-dark bg-light antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} font-mont text-dark bg-light dark:bg-dark antialiased `}
       >
+        {/* {Used to to avoid  FOUC during Dark mode refresh of browser} */}
+        {/* <Script id="theme-switcher" strategy="beforeInteractive">
+          {`
+            try {
+              document.documentElement.classList.toggle(
+                "dark",
+                localStorage.theme === "dark" ||
+                  (!("theme" in localStorage) &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+              );
+            } catch (e) {
+              console.error("Theme switcher error:", e);
+            }
+          `}
+        </Script> */}
         <Navbar />
 
         {/* <AnimatePresence mode="wait">

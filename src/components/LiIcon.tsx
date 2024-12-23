@@ -10,7 +10,7 @@ type LiIconProps<T extends HTMLElement> = {
 const LiIcon = <T extends HTMLElement>({ reference }: LiIconProps<T>) => {
    const { scrollYProgress } = useScroll({
      target: reference,
-     offset: ["center end", "end center"],
+     offset: ["center end", "center center"],
    });
 
    // Add a spring for smoother motion
@@ -19,7 +19,7 @@ const LiIcon = <T extends HTMLElement>({ reference }: LiIconProps<T>) => {
      damping: 20,
    });
   return (
-    <figure className="absolute left-0 stroke-dark">
+    <figure className="absolute left-0 stroke-dark dark:stroke-light">
       {/* <svg
         className="-rotate-90"
         width={"75"}
@@ -55,7 +55,7 @@ const LiIcon = <T extends HTMLElement>({ reference }: LiIconProps<T>) => {
           cx="50"
           cy="50"
           r="20"
-          className="stroke-primary stroke-[5px] fill-light"
+          className="stroke-primary dark:stroke-primaryDark stroke-[5px] fill-light dark:fill-dark"
           style={{
             pathLength: smoothScrollProgress, 
           }}
@@ -65,7 +65,7 @@ const LiIcon = <T extends HTMLElement>({ reference }: LiIconProps<T>) => {
           cx="50"
           cy="50"
           r="10"
-          className="stroke-primary stroke-[3px] fill-none"
+          className="stroke-primary dark:stroke-primaryDark stroke-[3px] fill-none"
           whileInView={{
             scale: [1, 1.2, 1], // Animate scale when in view
             opacity: [0, 1, 0.8],
@@ -81,7 +81,7 @@ const LiIcon = <T extends HTMLElement>({ reference }: LiIconProps<T>) => {
           cx="50"
           cy="50"
           r="5"
-          className="fill-primary animate-pulse" // Pulsating center
+          className="fill-primary dark:fill-primaryDark animate-pulse" // Pulsating center
         />
       </svg>
     </figure>

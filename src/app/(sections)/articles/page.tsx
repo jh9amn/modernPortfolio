@@ -79,13 +79,13 @@ const Article: React.FC<FeaturedArticleProps> = ({
 }) => {
   return (
     <motion.li
-      className="relative w-full p-4 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4"
+      className="relative w-full p-4 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4 dark:border-light dark:text-light dark:bg-dark"
       initial={{ y: 200 }}
       whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
       viewport={{ once: true }}
     >
       <MovingImage link={link} title={title} img={img} />
-      <span className="text-primary font-semibold pl-4">{time}</span>
+      <span className="text-primary dark:text-primaryDark font-semibold pl-4">{time}</span>
     </motion.li>
   );
 };
@@ -98,17 +98,17 @@ const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
   link,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-20% 0% -20% 0%" });
+  const isInView = useInView(ref, { once: true, margin: "-20% 0% -20% 0%" });
   return (
     <motion.li
-      className="col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl relative"
+      className="col-span-1 w-full p-4 bg-light border border-solid border-dark dark:bg-dark dark:border-light rounded-2xl relative"
       initial={{ opacity: 0, y: -50 }}
       ref={ref}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
     >
       <motion.div
-        className="absolute -bottom-3 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] rounded-br-3xl bg-dark"
+        className="absolute -bottom-4 -right-4 -z-10 w-[101%] h-[103%] rounded-[2.5rem] rounded-br-3xl bg-dark dark:bg-light"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
@@ -124,6 +124,10 @@ const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
           className="w-full h-auto"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
+          priority
+          sizes="(max-width : 768px) 100vw,
+                        (max-width: 1200px) 50vw,
+                          50vw"
         />
       </Link>
       <Link href={link} target="_blank">
@@ -132,7 +136,9 @@ const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
         </h2>
       </Link>
       <p className="text-sm mb-2">{summary}</p>
-      <span className="text-primary font-semibold">{time}</span>
+      <span className="text-primary dark:text-primaryDark font-semibold">
+        {time}
+      </span>
     </motion.li>
   );
 };
@@ -145,7 +151,7 @@ const Articles = () => {
         <meta name="description" content="my description" />
       </Head>
 
-      <main className="w-full mb-16 flex flex-col justify-center items-center overflow-hidden">
+      <main className="w-full mb-16 dark:text-light flex flex-col justify-center items-center overflow-hidden">
         <Layout className="pt-16">
           <AnimatedText
             text={"Words Can Change The World!"}

@@ -4,8 +4,6 @@ import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -27,8 +25,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathName = usePathname();
-
   return (
     <html lang="en">
       <head>
@@ -60,13 +56,9 @@ export default function RootLayout({
         </Script>
         */}
 
-        <AnimatePresence mode="wait">
-          <div key={pathName}>
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
-        </AnimatePresence>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );

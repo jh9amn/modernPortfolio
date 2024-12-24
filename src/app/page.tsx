@@ -9,12 +9,10 @@ import { LinkArrow } from "@/components/Icons";
 import HireMe from "@/components/HireMe";
 import lightBulb from "./../../public/images/svgs/miscellaneous_icons_1.svg";
 import AnimationTmeplate from "@/components/AnimationTmeplate";
-import TransitionEffect from "@/components/TransitionEffect";
 
 export default function Home() {
   return (
     <>
-      <TransitionEffect />
       <AnimationTmeplate>
         <main className="text-dark dark:text-light flex items-center w-full min-h-screen 2xl:d">
           <Layout className="pt-0 md:pt-16 sm:pt-8">

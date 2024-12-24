@@ -10,7 +10,6 @@ import article1 from "../../../../public/images/articles/pagination component in
 import article2 from "../../../../public/images/articles/create loading screen in react js.jpg";
 import article3 from "../../../../public/images/articles/pagination component in reactjs.jpg";
 import article4 from "../../../../public/images/articles/create modal component in react using react portals.png";
-import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
@@ -151,7 +150,6 @@ const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
 const Articles = () => {
   return (
     <>
-      <TransitionEffect />
       <Head>
         <title>Aman | About Page</title>
         <meta name="description" content="my description" />

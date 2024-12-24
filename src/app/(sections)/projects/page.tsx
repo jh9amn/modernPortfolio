@@ -5,11 +5,10 @@ import Layout from "@/components/Layout";
 import Head from "next/head";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import project1 from "../../../../public/images/projects/crypto-screener-cover-image.jpg";
 import AnimationTmeplate from "@/components/AnimationTmeplate";
-import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
@@ -305,7 +304,6 @@ const ProjectFirst: React.FC<FeaturedProjectProps> = ({
 const Projets = () => {
   return (
     <>
-      <TransitionEffect />
       <AnimationTmeplate>
         <Head>
           <title>Aman | About Page</title>

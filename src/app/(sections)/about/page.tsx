@@ -10,7 +10,6 @@ import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import AnimationTmeplate from "@/components/AnimationTmeplate";
-import TransitionEffect from "@/components/TransitionEffect";
 
 const AnimateNumber = ({ value }) => {
   const ref = useRef();
@@ -39,7 +38,6 @@ const AnimateNumber = ({ value }) => {
 const About = () => {
   return (
     <>
-      <TransitionEffect />
       <AnimationTmeplate>
         <Head>
           <title>Aman | About Page</title>

@@ -49,7 +49,12 @@ const LiIcon = <T extends HTMLElement>({ reference }: LiIconProps<T>) => {
         />
       </svg> */}
 
-      <svg className="-rotate-90" width="75" height="75" viewBox="0 0 100 100">
+      <svg
+        className="-rotate-90 md:w-[60px] md:h-[60px] sm:w-[40px] mxs:h-[40px]"
+        width="75"
+        height="75"
+        viewBox="0 0 100 100"
+      >
         {/* Outer Circle */}
         <motion.circle
           cx="50"
@@ -57,7 +62,7 @@ const LiIcon = <T extends HTMLElement>({ reference }: LiIconProps<T>) => {
           r="20"
           className="stroke-primary dark:stroke-primaryDark stroke-[5px] fill-light dark:fill-dark"
           style={{
-            pathLength: smoothScrollProgress, 
+            pathLength: smoothScrollProgress,
           }}
         />
         {/* Middle Circle */}

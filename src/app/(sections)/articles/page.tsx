@@ -10,6 +10,7 @@ import article1 from "../../../../public/images/articles/pagination component in
 import article2 from "../../../../public/images/articles/create loading screen in react js.jpg";
 import article3 from "../../../../public/images/articles/pagination component in reactjs.jpg";
 import article4 from "../../../../public/images/articles/create modal component in react using react portals.png";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
@@ -65,7 +66,8 @@ const MovingImage = ({
         whileInView={{ opacity: 1, transition: { duration: 0.2 } }}
         src={img}
         alt={title}
-        className="w-96 z-10 h-auto hidden absolute rounded-lg"
+        className="w-96 z-10 h-auto hidden absolute rounded-lg
+        md:!hidden"
       />
     </Link>
   );
@@ -79,13 +81,15 @@ const Article: React.FC<FeaturedArticleProps> = ({
 }) => {
   return (
     <motion.li
-      className="relative w-full p-4 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4 dark:border-light dark:text-light dark:bg-dark"
+      className="relative w-full p-4 my-4 rounded-xl flex items-center justify-between bg-light text-dark first:mt-0 border border-solid border-dark border-r-4 border-b-4 dark:border-light dark:text-light dark:bg-dark
+      sm:flex-col"
       initial={{ y: 200 }}
       whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
       viewport={{ once: true }}
     >
       <MovingImage link={link} title={title} img={img} />
-      <span className="text-primary dark:text-primaryDark font-semibold pl-4">{time}</span>
+      <span className="text-primary dark:text-primaryDark font-semibold pl-4
+      sm:self-start sm:pl-0 xs:text-sm">{time}</span>
     </motion.li>
   );
 };
@@ -131,7 +135,8 @@ const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
         />
       </Link>
       <Link href={link} target="_blank">
-        <h2 className="capitalize hover:underline text-2xl font-bold my-2 mt-4">
+        <h2 className="capitalize hover:underline text-2xl font-bold my-2 mt-4
+        xs:text-lg">
           {title}
         </h2>
       </Link>
@@ -146,6 +151,7 @@ const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
 const Articles = () => {
   return (
     <>
+      <TransitionEffect />
       <Head>
         <title>Aman | About Page</title>
         <meta name="description" content="my description" />
@@ -155,9 +161,13 @@ const Articles = () => {
         <Layout className="pt-16">
           <AnimatedText
             text={"Words Can Change The World!"}
-            className="mb-16"
+            className="mb-16 
+            lg:!text-7xl sm:!text-6xl xs:!text-4xl"
           />
-          <ul className="grid grid-cols-2 gap-14">
+          <ul
+            className="grid grid-cols-2 gap-16
+           md:grid-cols-1 lg:gap-8 md:gap-y-16"
+          >
             <FeaturedArticle
               title={
                 "Build A Custom Pagination Component In Reactjs From Scratch"

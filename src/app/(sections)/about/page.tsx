@@ -11,10 +11,10 @@ import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import AnimationTmeplate from "@/components/AnimationTmeplate";
 
-const AnimateNumber = ({ value }) => {
-  const ref = useRef();
+const AnimateNumber = ({ value } : {value : string}) => {
+  const ref = useRef<HTMLSpanElement | null>(null);
 
-  const motionValue = useMotionValue(0);
+  const motionValue = useMotionValue("0");
   const springValue = useSpring(motionValue, { duration: 3000 });
   const isInView = useInView(ref, { once: true });
 
@@ -27,7 +27,7 @@ const AnimateNumber = ({ value }) => {
   useEffect(() => {
     springValue.on("change", (latest) => {
       if (ref.current && latest.toFixed(0) <= value) {
-        ref.current.textContent = latest.toFixed(0);
+        ref.current.textContent = latest.toFixed(0); // Now TypeScript recognizes this property
       }
     });
   }, [springValue, value]);
@@ -52,7 +52,7 @@ const About = () => {
               className="mb-16 lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
             />
             {/* {// TODO: Improve the About Me section content} */}
-            <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
+            <div className="grid w-full md:flex md:flex-col grid-cols-8 gap-16 sm:gap-8">
               <div className="col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2  md:col-span-8">
                 <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">
                   About Me
@@ -98,7 +98,7 @@ const About = () => {
               <div className="col-span-2 flex flex-col items-end justify-between xl:col-span-8 xl:flex-row xl:items-center order-3 sm:gap-4">
                 <div className="flex flex-col items-end xl:items-center sm:mb-4 justify-center">
                   <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl">
-                    <AnimateNumber value={50} />+
+                    <AnimateNumber value={"50"} />+
                   </span>
                   <h2 className="text-xl font-medium capitalize dark:text-light/75 text-dark/75 sm:text-base xl:text-center md:text-lg xs:text-sm">
                     satishied clients
@@ -107,7 +107,7 @@ const About = () => {
 
                 <div className="flex flex-col items-end justify-center xl:items-center">
                   <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl">
-                    <AnimateNumber value={40} />+
+                    <AnimateNumber value={"40"} />+
                   </span>
                   <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 sm:text-base xl:text-center md:text-lg xs:text-sm">
                     projects completed
@@ -116,7 +116,7 @@ const About = () => {
 
                 <div className="flex flex-col items-end justify-center xl:items-center">
                   <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl">
-                    <AnimateNumber value={1} />+
+                    <AnimateNumber value={"1"} />+
                   </span>
                   <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 sm:text-base xl:text-center md:text-lg xs:text-sm">
                     years of experience

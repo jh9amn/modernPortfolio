@@ -17,11 +17,11 @@ export default function Home() {
         <main className="text-dark dark:text-light flex items-center w-full min-h-screen 2xl:d">
           <Layout className="pt-0 md:pt-16 sm:pt-8">
             <div className="flex flex-row lg:flex-col item-center justify-between w-full">
-              <div className="w-1/2 md:w-full">
+              <div className="w-1/2 md:w-full lg:self-center">
                 <Image
                   src={profilePic}
                   alt="aman_kumar_jha"
-                  className="w-full h-auto lg:hidden md:inline-block md:w-full"
+                  className="w-full h-auto md:inline-block md:w-full"
                   priority
                   sizes="(max-width : 768px) 100vw,
                         (max-width: 1200px) 50vw,

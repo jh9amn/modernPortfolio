@@ -35,7 +35,7 @@ const MovingImage = ({
   const y = useMotionValue(0);
   const imageRef = useRef(null);
 
-  function handleMouse(event) {
+  function handleMouse(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     // console.log(event.pageX);
     imageRef.current.style.display = "inline-block";
     x.set(event.pageX);

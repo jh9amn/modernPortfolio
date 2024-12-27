@@ -35,13 +35,13 @@ const MovingImage = ({
   const y = useMotionValue(0);
   const imageRef = useRef(null);
 
-  function handleMouse(event: { pageX: number; }) {
+  function handleMouse(event) {
     // console.log(event.pageX);
     imageRef.current.style.display = "inline-block";
     x.set(event.pageX);
     y.set(-10);
   }
-  function handleMouseLeave(event) {
+  function handleMouseLeave() {
     // console.log(event.pageX);
     imageRef.current.style.display = "none";
     x.set(0);

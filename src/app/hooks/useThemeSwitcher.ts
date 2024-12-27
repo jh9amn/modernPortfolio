@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 const useThemeSwitcher = () => {
   const preferDarkQuery = "(prefer-color-scheme: dark)";
   const [mode, setMode] = useState("");
@@ -9,7 +9,7 @@ const useThemeSwitcher = () => {
 
     const handleChange = () => {
       if (userProf) {
-        let check = userProf === "dark" ? "dark" : "light";
+        const check = userProf === "dark" ? "dark" : "light";
         setMode(check);
         if (check === "dark") {
           document.documentElement.classList.add("dark");
@@ -19,7 +19,7 @@ const useThemeSwitcher = () => {
       }
       // First time, when user open the website there is no user preference.. so else condition work
       else {
-        let check = mediaQuery.matches ? "dark" : "light";
+        const check = mediaQuery.matches ? "dark" : "light";
         setMode(check);
 
         if (check === "dark") {

@@ -54,12 +54,6 @@ const Education = () => {
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
-            type="Intermidiate in Science"
-            time="2019 - 2021"
-            place="Muzaffarpur, Bihar 842002"
-            info="Relevant courses has Advanced Maths, Physics, English, Chemistry"
-          />
-          <Details
             type="Bachelor's Of Computer Application"
             time="2021 - 2024"
             place="Muzaffarpur, Bihar 842002"

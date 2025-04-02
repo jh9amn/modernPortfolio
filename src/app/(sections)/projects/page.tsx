@@ -375,6 +375,7 @@ const Projets = () => {
                   type={"Featured Projects"}
                   img={project1}
                 />
+               
               </div>
             </div>
           </Layout>

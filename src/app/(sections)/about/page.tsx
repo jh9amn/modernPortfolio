@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
-import profilePic from "../../../../public/images/profile/developer-pic-2.jpg";
+import profilePic from "../../../../public/images/profile/passport_size_photo_3.jpg";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
@@ -81,7 +81,7 @@ const About = () => {
               <div
                 //   className="col-span-3 relative h-max rounded-2xl border-2 border-solid
                 //  border-dark dark:bg-dark dark:border-light bg-light p-8 xl:col-span-4 md:order-1 md:col-span-8"
-                className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark dark:bg-dark dark:border-light bg-light p-8 xl:col-span-4 md:order-1 md:col-span-8"
+                className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark dark:bg-dark dark:border-light bg-light p-8 md:p-4 xs:p-2 xl:col-span-4 md:order-1 md:col-span-8"
               >
                 <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark dark:bg-light" />
                 <Image
@@ -96,7 +96,7 @@ const About = () => {
               </div>
 
               <div className="col-span-2 flex flex-col items-end justify-between xl:col-span-8 xl:flex-row xl:items-center order-3 sm:gap-4">
-                <div className="flex flex-col items-end xl:items-center sm:mb-4 justify-center">
+                <div className="flex flex-col items-end xl:items-center justify-center">
                   <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl">
                     <AnimateNumber value={"50"} />+
                   </span>

@@ -31,6 +31,7 @@ const Details: React.FC<DetailsProps> = ({
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring" }}
+        className="ml-2"
       >
         <h3 className="capitalize font-bold text-2xl sm:text-xl xs:text-lg">
           {position}&nbsp;{" "}
@@ -55,7 +56,7 @@ const Experience = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center start"],
+    offset: ["start end", "end start"],
   });
 
   return (
@@ -73,33 +74,11 @@ const Experience = () => {
             position="Graduate Trainee"
             company="TCS"
             companyLink="https://www.tcs.com/"
-            time="2024 - present"
-            address="Chennai"
-            work="Work in Real project which will increase the user experience and increase the market value."
-          />
-          <Details
-            position="Graduate Trainee"
-            company="TCS"
-            companyLink="https://www.tcs.com/"
-            time="2024 - present"
-            address="Chennai"
-            work="Work in Real project which will increase the user experience and increase the market value."
-          />
-          <Details
-            position="Graduate Trainee"
-            company="TCS"
-            companyLink="https://www.tcs.com/"
-            time="2024 - present"
-            address="Chennai"
-            work="Work in Real project which will increase the user experience and increase the market value."
-          />
-          <Details
-            position="Graduate Trainee"
-            company="TCS"
-            companyLink="https://www.tcs.com/"
-            time="2024 - present"
-            address="Chennai"
-            work="Work in Real project which will increase the user experience and increase the market value."
+            time="January 2025 - present"
+            address="Hyderabad"
+            work="Work in Real project which will gives me hand on experience and make me able to work on another.
+            And also Completing Initial Learning Program. In this, I have learnt new technologies like web development, Programming languages like C++, Core Java, Python, Javascript, Typescript, AI/ML, 
+            Cloding Computing, CyberSecurity, DevOops Etc."
           />
         </ul>
       </div>
